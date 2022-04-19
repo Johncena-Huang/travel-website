@@ -1,5 +1,5 @@
-// import "core-js/stable";
-// import "regenerator-runtime/runtime";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import searchView from "./views/searchView.js";
 import mainView from "./views/mainView.js";
 import * as model from "./model.js";
