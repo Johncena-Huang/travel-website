@@ -1,0 +1,30 @@
+.heading-primary {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  line-height: 7.2rem;
+  @media only screen and (max-width: $bp-medium) {
+    line-height: calc(clamp(36px, 9vw, 72px));
+  }
+}
+.heading-secondary {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  line-height: 3.6rem;
+  letter-spacing: 0.25px;
+  color: var(--color-text-primary);
+}
+.heading-tertiary {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  line-height: 3.6rem;
+}
+.heading-quaternary {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: 2.4rem;
+}
+.paragraph {
+  font-size: var(--fs-2xs);
+  line-height: 2rem;
+  color: var(--color-text-secondary);
+}

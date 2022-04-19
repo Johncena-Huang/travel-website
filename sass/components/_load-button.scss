@@ -1,0 +1,17 @@
+.load-button {
+  display: block;
+  margin: 0 auto;
+  padding: 1.2rem 4rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    color: white;
+    background-color: var(--color-primary);
+  }
+}

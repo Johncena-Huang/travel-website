@@ -1,0 +1,39 @@
+{
+  "name": "travel-guide",
+  "version": "1.0.0",
+  "description": "This is the website where people can find some fun in Taiwan!",
+  "default": "index.html",
+  "dependencies": {
+    "core-js": "^3.22.0",
+    "node-sass": "^7.0.1",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "parcel": "^2.4.1",
+    "parcel-packager-svg-sprite": "^2.0.0",
+    "parcel-transformer-svg-sprite": "^2.0.0",
+    "postcss-cli": "^4.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "keywords": [
+    "travel",
+    "guide",
+    "taiwan"
+  ],
+  "author": "John Huang",
+  "license": "ISC"
+}
