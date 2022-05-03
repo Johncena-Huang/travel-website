@@ -1,0 +1,258 @@
+.search-box {
+  @media only screen and (max-width: 67.5em) {
+    padding: 2.4rem;
+    background-color: var(--color-bg-white);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translateY(-110%);
+    transition: all 0.3s;
+  }
+  &.slide {
+    transform: translateY(6.5%);
+  }
+  > *:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+
+  // select city
+  &__select-city {
+    position: relative;
+    z-index: 2;
+    // width: 30.6rem;
+    height: 4.3rem;
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    background-color: var(--color-bg-grey);
+    cursor: pointer;
+  }
+  &__select {
+    display: inline-block;
+    height: 2.7rem;
+    font-size: var(--fs-sm);
+    line-height: 2.7rem;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.38);
+  }
+  &__select.selected {
+    color: rgba(34, 34, 34, 1);
+  }
+  &__select.selected::after {
+    content: "";
+    display: inline-block;
+    background: url("../assets/navigation/cross-mark.svg") center / contain
+      no-repeat;
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-left: 0.5rem;
+  }
+  // toggle button
+  &__checkbox {
+    display: none;
+  }
+  &__icon-button {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  &__checkbox:checked ~ &__dp-list {
+    display: grid;
+    justify-items: center;
+  }
+  &__checkbox:checked ~ &__icon-button {
+    transform: rotate(-180deg);
+  }
+  // select city - drop-down list
+  &__dp-list {
+    position: absolute;
+    width: 100%;
+    top: 4.3rem;
+    left: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2.4rem;
+    grid-row-gap: 1.8rem;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    background-color: var(--color-bg-white);
+    // hide the element
+    // start
+    display: none;
+    // end
+    animation: rotateMenu 300ms ease-in-out forwards;
+    transform-origin: top center;
+    input[type="radio"] {
+      display: none;
+    }
+    label {
+      display: inline-block;
+      padding: 0.8rem;
+      width: 8rem;
+      border: 1px solid var(--color-primary);
+      text-align: center;
+      border-radius: 8px;
+      font-size: var(--fs-sm);
+      line-height: 2.7rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        // background-color: var(--color-primary);
+        // color: var(--color-bg-white);
+      }
+    }
+    label:hover,
+    input[type="radio"]:checked + label {
+      background-color: var(--color-primary);
+      color: var(--color-bg-white);
+    }
+  }
+  // keyword search
+  &__keyword-bar {
+    position: relative;
+    // width: 30.6rem;
+    height: 4.3rem;
+    background-color: var(--color-bg-grey);
+    cursor: help;
+  }
+  &__keyword {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+    &::placeholder {
+      font-family: var(--ff-noto);
+      line-height: 2.7rem;
+      color: var(--color-text-tertiary);
+      font-size: var(--fs-sm);
+    }
+  }
+  &__keyword-icon {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    color: var(--color-primary);
+  }
+  // search button
+  // (1.) "align" text inside line box
+  &__search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    // width: 30.6rem;
+    height: 4.3rem;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    color: var(--color-bg-white);
+    border: none;
+    font-family: var(--ff-noto);
+    line-height: 2.7rem;
+    font-size: var(--fs-sm);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.4);
+      transform: translateY(5px);
+    }
+    // align the text inside line box
+    span {
+      padding-bottom: 0.2em;
+    }
+  }
+  // theme
+  &__theme-text {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    line-height: 2.4rem;
+    letter-spacing: 0.15px;
+    text-align: left;
+  }
+  &__theme-text::before {
+    display: block;
+    content: "";
+    height: 1px;
+    background-color: var(--color-line);
+    margin-bottom: 2.4rem;
+  }
+  // theme box
+  &__theme-link,
+  &__theme-link:link,
+  &__theme-link:hover {
+    text-decoration: none;
+    text-align: center;
+    color: var(--color-text-primary);
+  }
+  &__theme-box {
+    color: var(--color-text-primary);
+    display: flex;
+    // width: 30.6rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media only screen and (max-width: 67.5em) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+    }
+  }
+  &__theme-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 11rem;
+    flex: 0 0 14.5rem;
+    font-size: var(--fs-xs);
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+    @media only screen and (max-width: 67.5em) {
+      width: 14.5rem;
+    }
+  }
+  &__theme-item.selected {
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+  }
+}
+
+/*
+(1.) align text inside line box
+    (a.) what is line box?
+    https://stackoverflow.com/questions/35529582/vertical-align-not-working-on-inline-block
+    (b.) using vertical-align to center text inside line-box won't work if it is flex item
+    https://stackoverflow.com/questions/46853593/vertical-align-doesnt-work-on-flex-item 
+    (c.) Deep dive CSS: font metrics, line-height and vertical-align
+    https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+    (d.) align <button> with icon and text
+    → wrap the text with <span> and then set the property of padding-bottom on the <span>
+    <note> this is the best timing to use "em" unit because it's relative to the font-size 
+    and we do want to make the adjument according to the font-size( In other words, padding-bottom
+    should be the function of font-size)
+(2.) Simulate "click" event in CSS
+    (a.) Using <input type="checkbox"> and <label> pair
+         and then set on input:checked *********
+    https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css
+(3.) transition/animate from display:none (alternative)
+    (a.) Instead of removing the element from the normal flow of document by setting
+    display:none, the same can be achieved by "opacity:0 height:0 pointer-event:none"
+    However, this set-up allows us to animate or transition from one state to another
+    https://www.designernews.co/stories/108519-css-the-bane-of-display-none-animations
+    reference "10 Ways to Hide Elements in CSS"
+    https://www.sitepoint.com/hide-elements-in-css/
+    (b.) css animation
+    put whatever property to transition or animate on in keyframe
+    https://hschwarz77.wordpress.com/2013/10/16/css-transition-from-display-none-to-display-block-on-hover/
+    https://stackoverflow.com/questions/64000697/css-opacity-transition-with-display-none
+    (c.) max-height:0 overflow:hidden to max-height:1000rem(doesn't work on flex item because height won't be zero)
+    Using height:0 to height:auto won't do the trick
+    http://css3.bradshawenterprises.com/animating_height/
+    https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css
+ 
+*/

@@ -1,0 +1,31 @@
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-10rem);
+  }
+  20% {
+    transform: translateY(-8rem);
+  }
+  40% {
+    transform: translateY(-6rem);
+  }
+  60% {
+    transform: translateY(-4rem);
+  }
+  80% {
+    transform: translateY(-2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes rotateMenu {
+  0% {
+    transform: rotateX(-90deg);
+  }
+  70% {
+    transform: rotateX(20deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}

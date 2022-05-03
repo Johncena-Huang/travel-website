@@ -1,0 +1,112 @@
+.mb-small {
+  margin-bottom: 1rem !important;
+}
+.mb-medium {
+  margin-bottom: 2rem !important ;
+}
+.mr-auto {
+  margin-right: auto;
+}
+.hidden {
+  display: none;
+}
+.error {
+  height: 100vh;
+  @include flex-center;
+}
+.svg-wrapper {
+  height: 4rem;
+  width: 4rem;
+  @include flex-center;
+}
+.svg-wrapper-1 {
+  height: 2.4rem;
+  width: 2.4rem;
+  @include flex-center;
+  margin-right: 0.8rem;
+}
+.svg-wrapper-2 {
+  height: 2.4rem;
+  width: 2.4rem;
+  @include flex-center;
+  margin-right: 0.4rem;
+}
+.svg-wrapper-3 {
+  height: 2.4rem;
+  width: 2.4rem;
+  @include flex-center;
+}
+.svg-wrapper--share {
+  background-color: var(--color-primary-light-1);
+  border-radius: 12px;
+}
+.svg-arrow {
+  width: 2rem;
+  height: 2rem;
+}
+.svg-location {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.svg-clock {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.svg-search {
+  width: 2.1rem;
+  height: 2.2rem;
+}
+.svg-share {
+  width: 24px;
+  height: 24px;
+}
+.svg-phone {
+  width: 24px;
+  height: 24px;
+}
+.svg-sort {
+  width: 24px;
+  height: 24px;
+}
+.color-white {
+  color: var(--color-bg-white);
+}
+svg {
+  width: 24px;
+  height: 24px;
+}
+.spinner {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.map {
+  display: block;
+  width: 100%;
+  height: 28rem;
+  border-radius: 8px;
+}
+.svg {
+  height: 2.4rem;
+  width: 2.4rem;
+  cursor: pointer;
+}
+@media print {
+  body > *:not(main) {
+    display: none !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+/* Print the page
+(1.) Using window.print() to print the whole document via JavaScript
+(2.) Specify @media print(printing condition) to conditionally hide the elements that shouldn't be printed.
+<reference> https://stackoverflow.com/questions/1071962/how-do-i-print-part-of-a-rendered-html-page-in-javascript
+(3.) Add vendor prefix to solve the problem of background image not showing up.
+<reference> https://stackoverflow.com/questions/5949897/how-to-get-a-background-image-to-print-using-css
+<Note> When using @media,the properties should be complemented with !important. Otherwise, it will be overridden by inline styling.
+<reference> https://stackoverflow.com/questions/17942969/css-media-print-not-working-at-all
+*/
