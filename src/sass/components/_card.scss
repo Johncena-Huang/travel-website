@@ -1,0 +1,158 @@
+// .card {
+//   background-color: var(--color-bg-white);
+//   border-radius: 16px;
+//   box-shadow: var(--box-shadow);
+//   overflow: hidden;
+//   &__link:link,
+//   &__link:hover {
+//     text-decoration: none;
+//   }
+//   &__image-frame {
+//     overflow: hidden;
+//   }
+//   &__image {
+//     display: block;
+//     width: 100%;
+//     height: 16.3rem;
+//     backface-visibility: hidden;
+//     transition: transform 0.5s;
+//   }
+//   &__image:hover {
+//     transform: scale(1.4);
+//   }
+//   &__body {
+//     color: var(--color-text-primary);
+//     padding: 0.8rem 0 1rem 1.6rem;
+//     @media only screen and (max-width: 30em) {
+//       // ok
+//       padding-left: 0;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//     }
+//     @media only screen and (max-width: $bp-small) {
+//       padding-left: 1.6rem;
+//       display: block;
+//     }
+//   }
+//   &__name {
+//     margin-bottom: 1rem;
+//   }
+//   &__description {
+//     display: flex;
+//     align-items: center;
+//     > *:first-child {
+//       margin-right: 1rem;
+//     }
+//     @media only screen and (max-width: $bp-medium) {
+//       flex-direction: column;
+//       align-items: flex-start;
+//     }
+//   }
+//   &__detail {
+//     display: flex;
+//     align-items: center;
+//   }
+// }
+
+.card {
+  &:link,
+  &:visited {
+    color: currentColor;
+  }
+  background: var(--color-bg-white);
+  box-shadow: var(--box-shadow);
+  border-radius: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  // image frame
+  &__frame {
+    position: relative;
+  }
+  // image
+  &__image {
+    display: block;
+    width: 100%;
+    height: 16.3rem;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+  }
+  // share icon
+  &__share-container {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--color-primary-light-1);
+    color: var(--color-bg-white);
+    border-radius: 12px;
+    @include flex-center;
+    cursor: pointer;
+  }
+  // card body
+  &__body {
+    padding: 0.8rem 1.6rem;
+  }
+  &__info-box {
+    display: flex;
+    > *:first-child {
+      margin-right: 2rem;
+    }
+    @media only screen and (max-width: 30em) {
+      flex-direction: column;
+    }
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: row;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    > svg {
+      flex-shrink: 0;
+    }
+  }
+  &__text {
+    color: var(--color-text-secondary);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-2xs);
+    line-height: 2rem;
+    letter-spacing: 0.25px;
+  }
+}
+// Modifier
+.card--secondary {
+  .card__info-box {
+    display: block;
+    > *:not(:first-child) {
+      margin-bottom: 0.6rem;
+    }
+    & > *:first-child {
+      margin-bottom: 6px;
+    }
+  }
+  .card__info:first-child p {
+    color: var(--color-text-primary);
+  }
+}
+
+/* The best way to write modifier class?
+ flex item shrink:0;
+ svg
+ (1.) To create a grid row with equal height based on the tallest grid item in the same row.
+ → grid-auto-rows: 1fr
+ reference: https://stackoverflow.com/questions/44488357/equal-height-rows-in-css-grid-layout
+ (2.) To implement modifier class
+ → always follow after the base class
+ reference: https://sparkbox.com/foundry/bem_by_example
+ (3.) Implementation of SVG
+ reference https://wattenberger.com/guide/scaling-svg
+ (4.) When constructing the component, we should consider its variant as well because it will affect
+ the SCSS structure.
+ (5.) In flexbox, when the p element as flex child breaks into the second line, it might squeeze other 
+ element out
+ → set the shrink property to 0 on other flex items to keep it from happening
+*/

@@ -1,0 +1,57 @@
+:root {
+  // primary color
+  --color-primary: rgba(63, 177, 149, 1);
+  --color-primary-light-1: rgba(63, 177, 149, 0.2);
+  --color-primary-light-2: rgba(63, 177, 149, 0.08);
+  // text color
+  --color-text-primary: rgba(34, 34, 34, 1);
+  --color-text-secondary: rgba(0, 0, 0, 0.6);
+  --color-text-tertiary: rgba(0, 0, 0, 0.38);
+  // background color
+  --color-bg-white: #ffffff;
+  --color-bg-grey: #fafafa;
+  // line color
+  --color-line: rgba(0, 0, 0, 0.08);
+
+  //box shadow
+  --box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.04);
+
+  // font family
+  --ff-noto: "Noto Sans TC", sans-serif;
+  // font weight
+  --fw-regular: 400;
+  --fw-bold: 700;
+  // font size
+  --fs-xl: 5.8rem; // h1
+  --fs-lg: 3.3rem; // h2
+  --fs-md: 2.4rem; // h3
+  --fs-sm: 1.8rem; // item title
+  --fs-xs: 1.6rem;
+  --fs-2xs: 1.4rem;
+}
+//media query breakpoints
+$bp-large: 90em; // 1440px
+$bp-medium: 48em; // 768px
+$bp-small: 23.4375em; //375px
+
+// variables
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+body {
+  box-sizing: border-box;
+  font-family: var(--ff-noto);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  color: var(--color-white);
+  line-height: 2.4rem;
+}

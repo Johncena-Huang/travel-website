@@ -1,0 +1,51 @@
+.home {
+  display: grid;
+  grid-template-columns:
+    [sidebar-start] max-content [sidebar-end full-start] 1fr [main-start] minmax(
+      calc(34.3rem + 3.2rem),
+      calc(103.8rem + 4.8rem)
+    )
+    [main-end] 1fr [full-end];
+  background-color: var(--color-bg-grey);
+}
+
+.main-sections {
+  grid-column: main-start / main-end;
+  // width: 103.8rem;
+  padding: 2.4rem;
+
+  > * {
+    margin-bottom: 4.6rem;
+  }
+}
+.banner {
+  position: relative;
+  background: url("../assets/main-sections/banner-1x.png") right bottom /
+    contain no-repeat;
+
+  // background-position: right bottom;
+  // background-size: auto;
+  // background-repeat: no-repeat;
+  // width: 103.8rem;
+  // https://stackoverflow.com/questions/54090345/sass-incompatible-units-vw-and-px
+  height: calc(clamp(233px, 23.26vw, 335px));
+  border-radius: 16px;
+  box-shadow: var(--box-shadow);
+  @media only screen and (max-width: $bp-medium) {
+    height: calc(clamp(152px, 30vw, 233px));
+  }
+  @media only screen and (max-width: 31.625em) {
+    background-size: 171px auto;
+  }
+
+  > h1 {
+    position: absolute;
+    top: calc(clamp(45px, 28.35%, 95px));
+    left: 4rem;
+    @media only screen and (max-width: $bp-medium) {
+      top: 20%;
+      left: 4%;
+      font-size: calc(clamp(33px, 7.8vw, 58px));
+    }
+  }
+}

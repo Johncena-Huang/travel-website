@@ -1,0 +1,87 @@
+.details {
+  > *:not(:first-child) {
+    margin-bottom: 2.4rem;
+  }
+  &__heading {
+    display: flex;
+    align-items: baseline;
+  }
+  &__heading > svg:not(:last-child) {
+    margin-right: 1.6rem;
+  }
+  &__heading > svg {
+    color: var(--color-primary);
+  }
+  &__heading > svg:hover,
+  &__heading > svg:focus {
+    color: white;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+  }
+  &__banner {
+    height: 36.4rem;
+    border-radius: 4px;
+    overflow: hidden;
+    > img {
+      // image set up
+      // reference https://stackoverflow.com/questions/1891857/how-do-you-stretch-an-image-to-fill-a-div-while-keeping-the-images-aspect-rat
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 14.5rem;
+    padding: 1.6rem;
+    background-color: var(--color-primary-light-2);
+    border-radius: 8px;
+  }
+  &__info > p:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
+  &__address,
+  &__phone-number,
+  &__open-hours {
+    position: relative;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-sm);
+    line-height: 27px;
+    letter-spacing: 0.15px;
+  }
+  &__address::before,
+  &__phone-number::before,
+  &__open-hours::before {
+    display: inline-block;
+    content: "";
+    height: 2.4rem;
+    width: 2.4rem;
+    vertical-align: text-bottom;
+    margin-right: 0.5rem;
+  }
+  &__address::before {
+    background-image: url("../assets/sprite-collection.svg#location");
+  }
+  &__open-hours::before {
+    background-image: url("../assets/sprite-collection.svg#clock");
+  }
+  &__phone-number::before {
+    background-image: url("../assets/sprite-collection.svg#phone");
+  }
+  &__intro {
+    font-size: var(--fs-sm);
+    letter-spacing: 0.15px;
+    line-height: 2.7rem;
+    font-weight: var(--fw-regular);
+  }
+  &__title {
+    display: block;
+    margin-bottom: 1.6rem;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    line-height: 2.4rem;
+    color: var(--color-primary);
+  }
+}

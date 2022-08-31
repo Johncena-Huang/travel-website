@@ -1,0 +1,837 @@
+@charset "UTF-8";
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-10rem); }
+  20% {
+    transform: translateY(-8rem); }
+  40% {
+    transform: translateY(-6rem); }
+  60% {
+    transform: translateY(-4rem); }
+  80% {
+    transform: translateY(-2rem); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes rotateMenu {
+  0% {
+    transform: rotateX(-90deg); }
+  70% {
+    transform: rotateX(20deg); }
+  100% {
+    transform: rotateX(0deg); } }
+
+:root {
+  --color-primary: rgba(63, 177, 149, 1);
+  --color-primary-light-1: rgba(63, 177, 149, 0.2);
+  --color-primary-light-2: rgba(63, 177, 149, 0.08);
+  --color-text-primary: rgba(34, 34, 34, 1);
+  --color-text-secondary: rgba(0, 0, 0, 0.6);
+  --color-text-tertiary: rgba(0, 0, 0, 0.38);
+  --color-bg-white: #ffffff;
+  --color-bg-grey: #fafafa;
+  --color-line: rgba(0, 0, 0, 0.08);
+  --box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.04);
+  --ff-noto: "Noto Sans TC", sans-serif;
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fs-xl: 5.8rem;
+  --fs-lg: 3.3rem;
+  --fs-md: 2.4rem;
+  --fs-sm: 1.8rem;
+  --fs-xs: 1.6rem;
+  --fs-2xs: 1.4rem; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-family: var(--ff-noto);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  color: var(--color-white);
+  line-height: 2.4rem; }
+
+.heading-primary {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  line-height: 7.2rem; }
+  @media only screen and (max-width: 48em) {
+    .heading-primary {
+      line-height: calc(clamp(36px, 9vw, 72px)); } }
+
+.heading-secondary {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  line-height: 3.6rem;
+  letter-spacing: 0.25px;
+  color: var(--color-text-primary); }
+
+.heading-tertiary {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  line-height: 3.6rem; }
+
+.heading-quaternary {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: 2.4rem; }
+
+.paragraph {
+  font-size: var(--fs-2xs);
+  line-height: 2rem;
+  color: var(--color-text-secondary); }
+
+.mb-small {
+  margin-bottom: 1rem !important; }
+
+.mb-medium {
+  margin-bottom: 2rem !important; }
+
+.mr-auto {
+  margin-right: auto; }
+
+.hidden {
+  display: none; }
+
+.error {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.svg-wrapper {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.svg-wrapper-1 {
+  height: 2.4rem;
+  width: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.8rem; }
+
+.svg-wrapper-2 {
+  height: 2.4rem;
+  width: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.4rem; }
+
+.svg-wrapper-3 {
+  height: 2.4rem;
+  width: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.svg-wrapper--share {
+  background-color: var(--color-primary-light-1);
+  border-radius: 12px; }
+
+.svg-arrow {
+  width: 2rem;
+  height: 2rem; }
+
+.svg-location {
+  width: 2.4rem;
+  height: 2.4rem; }
+
+.svg-clock {
+  width: 2.4rem;
+  height: 2.4rem; }
+
+.svg-search {
+  width: 2.1rem;
+  height: 2.2rem; }
+
+.svg-share {
+  width: 24px;
+  height: 24px; }
+
+.svg-phone {
+  width: 24px;
+  height: 24px; }
+
+.svg-sort {
+  width: 24px;
+  height: 24px; }
+
+.color-white {
+  color: var(--color-bg-white); }
+
+svg {
+  width: 24px;
+  height: 24px; }
+
+.spinner {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.map {
+  display: block;
+  width: 100%;
+  height: 28rem;
+  border-radius: 8px; }
+
+.svg {
+  height: 2.4rem;
+  width: 2.4rem;
+  cursor: pointer; }
+
+@media print {
+  body > *:not(main) {
+    display: none !important; }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact; } }
+
+/* Print the page
+(1.) Using window.print() to print the whole document via JavaScript
+(2.) Specify @media print(printing condition) to conditionally hide the elements that shouldn't be printed.
+<reference> https://stackoverflow.com/questions/1071962/how-do-i-print-part-of-a-rendered-html-page-in-javascript
+(3.) Add vendor prefix to solve the problem of background image not showing up.
+<reference> https://stackoverflow.com/questions/5949897/how-to-get-a-background-image-to-print-using-css
+<Note> When using @media,the properties should be complemented with !important. Otherwise, it will be overridden by inline styling.
+<reference> https://stackoverflow.com/questions/17942969/css-media-print-not-working-at-all
+*/
+@media only screen and (max-width: 67.5em) {
+  .search-box {
+    padding: 2.4rem;
+    background-color: var(--color-bg-white);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translateY(-110%);
+    transition: all 0.3s; } }
+
+.search-box.slide {
+  transform: translateY(6.5%); }
+
+.search-box > *:not(:last-child) {
+  margin-bottom: 2.4rem; }
+
+.search-box__select-city {
+  position: relative;
+  z-index: 2;
+  height: 4.3rem;
+  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background-color: var(--color-bg-grey);
+  cursor: pointer; }
+
+.search-box__select {
+  display: inline-block;
+  height: 2.7rem;
+  font-size: var(--fs-sm);
+  line-height: 2.7rem;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.38); }
+
+.search-box__select.selected {
+  color: #222222; }
+
+.search-box__select.selected::after {
+  content: "";
+  display: inline-block;
+  background: url("../assets/navigation/cross-mark.svg") center/contain no-repeat;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: 0.5rem; }
+
+.search-box__checkbox {
+  display: none; }
+
+.search-box__icon-button {
+  cursor: pointer;
+  transition: transform 0.3s; }
+
+.search-box__checkbox:checked ~ .search-box__dp-list {
+  display: grid;
+  justify-items: center; }
+
+.search-box__checkbox:checked ~ .search-box__icon-button {
+  transform: rotate(-180deg); }
+
+.search-box__dp-list {
+  position: absolute;
+  width: 100%;
+  top: 4.3rem;
+  left: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2.4rem;
+  grid-row-gap: 1.8rem;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  background-color: var(--color-bg-white);
+  display: none;
+  animation: rotateMenu 300ms ease-in-out forwards;
+  transform-origin: top center; }
+  .search-box__dp-list input[type="radio"] {
+    display: none; }
+  .search-box__dp-list label {
+    display: inline-block;
+    padding: 0.8rem;
+    width: 8rem;
+    border: 1px solid var(--color-primary);
+    text-align: center;
+    border-radius: 8px;
+    font-size: var(--fs-sm);
+    line-height: 2.7rem;
+    cursor: pointer;
+    transition: all 0.2s; }
+  .search-box__dp-list label:hover,
+  .search-box__dp-list input[type="radio"]:checked + label {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white); }
+
+.search-box__keyword-bar {
+  position: relative;
+  height: 4.3rem;
+  background-color: var(--color-bg-grey);
+  cursor: help; }
+
+.search-box__keyword {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: transparent; }
+  .search-box__keyword::placeholder {
+    font-family: var(--ff-noto);
+    line-height: 2.7rem;
+    color: var(--color-text-tertiary);
+    font-size: var(--fs-sm); }
+
+.search-box__keyword-icon {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  color: var(--color-primary); }
+
+.search-box__search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4.3rem;
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  color: var(--color-bg-white);
+  border: none;
+  font-family: var(--ff-noto);
+  line-height: 2.7rem;
+  font-size: var(--fs-sm);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s;
+  cursor: pointer; }
+  .search-box__search-btn:active {
+    box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.4);
+    transform: translateY(5px); }
+  .search-box__search-btn span {
+    padding-bottom: 0.2em; }
+
+.search-box__theme-text {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: 2.4rem;
+  letter-spacing: 0.15px;
+  text-align: left; }
+
+.search-box__theme-text::before {
+  display: block;
+  content: "";
+  height: 1px;
+  background-color: var(--color-line);
+  margin-bottom: 2.4rem; }
+
+.search-box__theme-link, .search-box__theme-link:link, .search-box__theme-link:hover {
+  text-decoration: none;
+  text-align: center;
+  color: var(--color-text-primary); }
+
+.search-box__theme-box {
+  color: var(--color-text-primary);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  @media only screen and (max-width: 67.5em) {
+    .search-box__theme-box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center; } }
+
+.search-box__theme-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 11rem;
+  flex: 0 0 14.5rem;
+  font-size: var(--fs-xs);
+  margin-bottom: 1.2rem;
+  cursor: pointer; }
+  @media only screen and (max-width: 67.5em) {
+    .search-box__theme-item {
+      width: 14.5rem; } }
+
+.search-box__theme-item.selected {
+  border: 1px solid var(--color-primary);
+  border-radius: 8px; }
+
+/*
+(1.) align text inside line box
+    (a.) what is line box?
+    https://stackoverflow.com/questions/35529582/vertical-align-not-working-on-inline-block
+    (b.) using vertical-align to center text inside line-box won't work if it is flex item
+    https://stackoverflow.com/questions/46853593/vertical-align-doesnt-work-on-flex-item 
+    (c.) Deep dive CSS: font metrics, line-height and vertical-align
+    https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+    (d.) align <button> with icon and text
+    → wrap the text with <span> and then set the property of padding-bottom on the <span>
+    <note> this is the best timing to use "em" unit because it's relative to the font-size 
+    and we do want to make the adjument according to the font-size( In other words, padding-bottom
+    should be the function of font-size)
+(2.) Simulate "click" event in CSS
+    (a.) Using <input type="checkbox"> and <label> pair
+         and then set on input:checked *********
+    https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css
+(3.) transition/animate from display:none (alternative)
+    (a.) Instead of removing the element from the normal flow of document by setting
+    display:none, the same can be achieved by "opacity:0 height:0 pointer-event:none"
+    However, this set-up allows us to animate or transition from one state to another
+    https://www.designernews.co/stories/108519-css-the-bane-of-display-none-animations
+    reference "10 Ways to Hide Elements in CSS"
+    https://www.sitepoint.com/hide-elements-in-css/
+    (b.) css animation
+    put whatever property to transition or animate on in keyframe
+    https://hschwarz77.wordpress.com/2013/10/16/css-transition-from-display-none-to-display-block-on-hover/
+    https://stackoverflow.com/questions/64000697/css-opacity-transition-with-display-none
+    (c.) max-height:0 overflow:hidden to max-height:1000rem(doesn't work on flex item because height won't be zero)
+    Using height:0 to height:auto won't do the trick
+    http://css3.bradshawenterprises.com/animating_height/
+    https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css
+ 
+*/
+.card {
+  background: var(--color-bg-white);
+  box-shadow: var(--box-shadow);
+  border-radius: 16px;
+  text-decoration: none;
+  overflow: hidden; }
+  .card:link, .card:visited {
+    color: currentColor; }
+  .card__frame {
+    position: relative; }
+  .card__image {
+    display: block;
+    width: 100%;
+    height: 16.3rem;
+    backface-visibility: hidden;
+    transition: transform 0.5s; }
+  .card__share-container {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--color-primary-light-1);
+    color: var(--color-bg-white);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; }
+  .card__body {
+    padding: 0.8rem 1.6rem; }
+  .card__info-box {
+    display: flex; }
+    .card__info-box > *:first-child {
+      margin-right: 2rem; }
+    @media only screen and (max-width: 30em) {
+      .card__info-box {
+        flex-direction: column; } }
+    @media only screen and (max-width: 23.4375em) {
+      .card__info-box {
+        flex-direction: row; } }
+  .card__info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; }
+    .card__info > svg {
+      flex-shrink: 0; }
+  .card__text {
+    color: var(--color-text-secondary);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-2xs);
+    line-height: 2rem;
+    letter-spacing: 0.25px; }
+
+.card--secondary .card__info-box {
+  display: block; }
+  .card--secondary .card__info-box > *:not(:first-child) {
+    margin-bottom: 0.6rem; }
+  .card--secondary .card__info-box > *:first-child {
+    margin-bottom: 6px; }
+
+.card--secondary .card__info:first-child p {
+  color: var(--color-text-primary); }
+
+/* The best way to write modifier class?
+ flex item shrink:0;
+ svg
+ (1.) To create a grid row with equal height based on the tallest grid item in the same row.
+ → grid-auto-rows: 1fr
+ reference: https://stackoverflow.com/questions/44488357/equal-height-rows-in-css-grid-layout
+ (2.) To implement modifier class
+ → always follow after the base class
+ reference: https://sparkbox.com/foundry/bem_by_example
+ (3.) Implementation of SVG
+ reference https://wattenberger.com/guide/scaling-svg
+ (4.) When constructing the component, we should consider its variant as well because it will affect
+ the SCSS structure.
+ (5.) In flexbox, when the p element as flex child breaks into the second line, it might squeeze other 
+ element out
+ → set the shrink property to 0 on other flex items to keep it from happening
+*/
+.details > *:not(:first-child) {
+  margin-bottom: 2.4rem; }
+
+.details__heading {
+  display: flex;
+  align-items: baseline; }
+
+.details__heading > svg:not(:last-child) {
+  margin-right: 1.6rem; }
+
+.details__heading > svg {
+  color: var(--color-primary); }
+
+.details__heading > svg:hover,
+.details__heading > svg:focus {
+  color: white;
+  background-color: var(--color-primary);
+  border-radius: 8px; }
+
+.details__banner {
+  height: 36.4rem;
+  border-radius: 4px;
+  overflow: hidden; }
+  .details__banner > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill; }
+
+.details__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 14.5rem;
+  padding: 1.6rem;
+  background-color: var(--color-primary-light-2);
+  border-radius: 8px; }
+
+.details__info > p:not(:last-child) {
+  margin-bottom: 1.6rem; }
+
+.details__address, .details__phone-number, .details__open-hours {
+  position: relative;
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-sm);
+  line-height: 27px;
+  letter-spacing: 0.15px; }
+
+.details__address::before, .details__phone-number::before, .details__open-hours::before {
+  display: inline-block;
+  content: "";
+  height: 2.4rem;
+  width: 2.4rem;
+  vertical-align: text-bottom;
+  margin-right: 0.5rem; }
+
+.details__address::before {
+  background-image: url("../assets/sprite-collection.svg#location"); }
+
+.details__open-hours::before {
+  background-image: url("../assets/sprite-collection.svg#clock"); }
+
+.details__phone-number::before {
+  background-image: url("../assets/sprite-collection.svg#phone"); }
+
+.details__intro {
+  font-size: var(--fs-sm);
+  letter-spacing: 0.15px;
+  line-height: 2.7rem;
+  font-weight: var(--fw-regular); }
+
+.details__title {
+  display: block;
+  margin-bottom: 1.6rem;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: 2.4rem;
+  color: var(--color-primary); }
+
+.load-button {
+  display: block;
+  margin: 0 auto;
+  padding: 1.2rem 4rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.3s; }
+  .load-button:hover {
+    color: white;
+    background-color: var(--color-primary); }
+
+.sort-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  .sort-box > *:not(:last-child) {
+    margin-right: 1.2rem; }
+  .sort-box__icon {
+    cursor: pointer; }
+  .sort-box__button {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    color: #222222;
+    font-size: var(--fs-sm);
+    line-height: 27px;
+    letter-spacing: 0.15px;
+    font-weight: var(--fw-regular);
+    text-align: center;
+    cursor: pointer; }
+    @media only screen and (max-width: 23.875em) {
+      .sort-box__button {
+        font-size: var(--fs-xs);
+        line-height: 24px;
+        letter-spacing: 0.5px; } }
+  .sort-box input[type="radio"] {
+    display: none; }
+  .sort-box input[type="radio"]:checked + label {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 2.4rem;
+  grid-row-gap: 2.4rem; }
+  @media only screen and (max-width: 60em) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (max-width: 48em) {
+    .gallery {
+      grid-column-gap: 1.2rem; } }
+  @media only screen and (max-width: 30em) {
+    .gallery {
+      grid-column-gap: 0.6rem; } }
+  @media only screen and (max-width: 23.4375em) {
+    .gallery {
+      grid-template-columns: 1fr; } }
+
+.navigation {
+  grid-column: sidebar-start / sidebar-end;
+  width: 37.8rem;
+  top: 0;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: sticky;
+  height: 100vh;
+  padding: 4rem 2.4rem;
+  /* bg/bg white */
+  background: var(--color-bg-white);
+  box-shadow: var(--box-shadow);
+  border-radius: 12px;
+  z-index: 1; }
+  @media only screen and (max-width: 67.5em) {
+    .navigation {
+      grid-column: full-start / full-end;
+      width: 100%;
+      overflow-y: unset;
+      height: 5.6rem;
+      padding: 0;
+      flex-direction: row;
+      justify-content: center; } }
+
+@media only screen and (max-width: 67.5em) {
+  .nav {
+    position: relative;
+    display: flex;
+    padding: 1.6rem;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-white);
+    z-index: 1; } }
+
+.nav .nav-button {
+  display: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1; }
+  @media only screen and (max-width: 67.5em) {
+    .nav .nav-button {
+      display: inline-block; } }
+
+.nav .logo {
+  height: 4.7rem;
+  width: 11.65rem;
+  margin-bottom: 2.4rem; }
+  @media only screen and (max-width: 67.5em) {
+    .nav .logo {
+      width: 9.915rem;
+      height: 4rem;
+      margin: 0 auto; } }
+
+.nav .logo__link {
+  height: 100%;
+  width: 100%; }
+
+.nav .logo__img {
+  width: 100%;
+  height: 100%; }
+
+/* Summary
+(1.) responsive image(logo)
+  breakpoint 1080px(67.5em)
+  → switch betweeen two versions of image(fix-width)
+  → the image frame switches betweeen two dimensions(fixed width)
+*/
+.category:not(:last-child) {
+  margin-bottom: 4.6rem; }
+
+.category > *:not(:last-child) {
+  margin-bottom: 1.6rem; }
+
+.category__title {
+  display: inline-block;
+  width: 6.7rem;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  line-height: 3.6rem;
+  letter-spacing: 0.25px; }
+
+.category__text-box {
+  display: flex;
+  align-items: center; }
+
+.category__title-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-right: 0.8rem; }
+
+.category__more:link, .category__more:visited {
+  font-size: var(--fs-xs);
+  line-height: 2.4rem;
+  text-decoration: none;
+  color: var(--color-primary);
+  margin-left: auto; }
+
+.category__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 2.4rem;
+  grid-row-gap: 2.4rem; }
+  @media only screen and (max-width: 60em) {
+    .category__gallery {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (max-width: 48em) {
+    .category__gallery {
+      grid-column-gap: 1.2rem; } }
+  @media only screen and (max-width: 30em) {
+    .category__gallery {
+      grid-column-gap: 0.6rem; } }
+  @media only screen and (max-width: 23.4375em) {
+    .category__gallery {
+      grid-template-columns: 1fr; } }
+
+.footer {
+  grid-column: full-start / full-end;
+  background-color: var(--color-primary);
+  padding: 8px 0;
+  text-align: center;
+  font-size: var(--fs-2xs);
+  line-height: 2rem;
+  color: var(--color-bg-white); }
+  .footer__title {
+    text-transform: uppercase;
+    margin-bottom: 4px; }
+  .footer__disclaimer-box {
+    display: flex;
+    justify-content: center; }
+  .footer__disclaimer-box > *:not(:last-child) {
+    margin-right: 2rem; }
+  .footer__link:link, .footer__link:visited {
+    color: yellow; }
+
+.home {
+  display: grid;
+  grid-template-columns: [sidebar-start] max-content [sidebar-end full-start] 1fr [main-start] minmax(calc(34.3rem + 3.2rem), calc(103.8rem + 4.8rem)) [main-end] 1fr [full-end];
+  background-color: var(--color-bg-grey); }
+
+.main-sections {
+  grid-column: main-start / main-end;
+  padding: 2.4rem; }
+  .main-sections > * {
+    margin-bottom: 4.6rem; }
+
+.banner {
+  position: relative;
+  background: url("../assets/main-sections/banner-1x.png") right bottom/contain no-repeat;
+  height: calc(clamp(233px, 23.26vw, 335px));
+  border-radius: 16px;
+  box-shadow: var(--box-shadow); }
+  @media only screen and (max-width: 48em) {
+    .banner {
+      height: calc(clamp(152px, 30vw, 233px)); } }
+  @media only screen and (max-width: 31.625em) {
+    .banner {
+      background-size: 171px auto; } }
+  .banner > h1 {
+    position: absolute;
+    top: calc(clamp(45px, 28.35%, 95px));
+    left: 4rem; }
+    @media only screen and (max-width: 48em) {
+      .banner > h1 {
+        top: 20%;
+        left: 4%;
+        font-size: calc(clamp(33px, 7.8vw, 58px)); } }

@@ -1,0 +1,40 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  &__input {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0rem 0.5rem 3.5rem;
+    width: 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: inherit;
+    color: hsl(0, 50%, 100%);
+    font-style: italic;
+    visibility: hidden;
+    transition: width 0.3s ease-in-out 5s;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  &__icon {
+    position: relative;
+    z-index: 1;
+    color: var(--color-white);
+    margin-right: -3rem;
+  }
+  &__button:hover + &__input,
+  &__input:focus,
+  &__input:hover {
+    width: 40rem;
+    visibility: visible;
+  }
+}

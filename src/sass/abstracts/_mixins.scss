@@ -1,0 +1,11 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-wrapper($size, $margin) {
+  height: $size;
+  width: $size;
+  @include flex-center;
+  margin-right: $margin;
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Travel Taiwan</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/favicon.png" />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"
+    ></script>
+  </head>
+
+  <body class="home">
+    <header class="navigation">
+      <div class="nav">
+        <button class="nav-button">
+          <img
+            class="nav-img"
+            src="assets/navigation/nav-icon.png"
+            alt="navigation icon"
+          />
+        </button>
+        <h1 class="logo">
+          <a class="logo__link" href="#">
+            <picture>
+              <source
+                media="(max-width: 67.5em)"
+                srcset="assets/navigation/logo-small.png"
+              />
+              <img
+                class="logo__img"
+                src="assets/navigation/logo-large.png"
+                alt="Logo"
+              />
+            </picture>
+          </a>
+        </h1>
+      </div>
+      <form action="" class="search-box">
+        <div class="search-box__select-city">
+          <span class="search-box__select">選擇目的地</span>
+          <input type="checkbox" id="dp-toggle" class="search-box__checkbox" />
+          <label class="search-box__icon-button" for="dp-toggle">
+            <svg class="svg-wrapper-3">
+              <use
+                class="svg-arrow"
+                xlink:href="assets/navigation/Arrow-Down Circle.svg#arrow-down"
+              ></use>
+            </svg>
+          </label>
+          <div class="search-box__dp-list">
+            <input type="radio" id="基隆市" value="Keelung" name="city" />
+            <label for="基隆市">基隆市</label>
+            <input type="radio" id="台北市" value="Taipei" name="city" />
+            <label for="台北市">台北市</label>
+            <input type="radio" id="新北市" value="NewTaipei" name="city" />
+            <label for="新北市">新北市</label>
+            <input type="radio" id="桃園市" value="Taoyuan" name="city" />
+            <label for="桃園市">桃園市</label>
+            <input type="radio" id="新竹市" value="Hsinchu" name="city" />
+            <label for="新竹市">新竹市</label>
+            <input type="radio" id="新竹縣" value="HsinchuCounty" name="city" />
+            <label for="新竹縣">新竹縣</label>
+            <input type="radio" id="苗栗縣" value="MiaoliCounty" name="city" />
+            <label for="苗栗縣">苗栗縣</label>
+            <input type="radio" id="台中市" value="Taichung" name="city" />
+            <label for="台中市">台中市</label>
+            <input type="radio" id="花蓮縣" value="HualienCounty" name="city" />
+            <label for="花蓮縣">花蓮縣</label>
+            <input
+              type="radio"
+              id="彰化縣"
+              value="ChanghuaCounty"
+              name="city"
+            />
+            <label for="彰化縣">彰化縣</label>
+            <input type="radio" id="雲林縣" value="YunlinCounty" name="city" />
+            <label for="雲林縣">雲林縣</label>
+            <input type="radio" id="嘉義市" value="Chiayi" name="city" />
+            <label for="嘉義市">嘉義市</label>
+            <input type="radio" id="嘉義縣" value="ChiayiCounty" name="city" />
+            <label for="嘉義縣">嘉義縣</label>
+            <input type="radio" id="台南市" value="Tainan" name="city" />
+            <label for="台南市">台南市</label>
+            <input type="radio" id="高雄市" value="Kaohsiung" name="city" />
+            <label for="高雄市">高雄市</label>
+            <input type="radio" id="南投縣" value="NantouCounty" name="city" />
+            <label for="南投縣">南投縣</label>
+            <input
+              type="radio"
+              id="屏東縣"
+              value="PingtungCounty"
+              name="city"
+            />
+            <label for="屏東縣">屏東縣</label>
+            <input type="radio" id="宜蘭縣" value="YilanCounty" name="city" />
+            <label for="宜蘭縣">宜蘭縣</label>
+            <input type="radio" id="台東縣" value="TaitungCounty" name="city" />
+            <label for="台東縣">台東縣</label>
+            <input type="radio" id="金門縣" value="KinmenCounty" name="city" />
+            <label for="金門縣">金門縣</label>
+            <input type="radio" id="澎湖縣" value="PenghuCounty" name="city" />
+            <label for="澎湖縣">澎湖縣</label>
+            <input
+              type="radio"
+              id="連江縣"
+              value="LienchiangCounty"
+              name="city"
+            />
+            <label for="連江縣">連江縣</label>
+          </div>
+        </div>
+        <div class="search-box__keyword-bar">
+          <input
+            type="text"
+            class="search-box__keyword"
+            placeholder="搜尋關鍵字"
+            name="keyword"
+          />
+          <svg class="svg-wrapper-3 search-box__keyword-icon">
+            <use
+              class="svg-search"
+              xlink:href="assets/navigation/Search.svg#search"
+            ></use>
+          </svg>
+        </div>
+        <button class="search-box__search-btn">
+          <div class="svg-wrapper-1">
+            <svg class="svg-search color-white">
+              <use
+                class="svg-search"
+                xlink:href="assets/navigation/Search.svg#search"
+              ></use>
+            </svg>
+          </div>
+          <span>開始搜尋</span>
+        </button>
+        <span class="search-box__theme-text">精選主題</span>
+        <div class="search-box__theme-box">
+          <figure class="search-box__theme-item" data-theme="history">
+            <img
+              src="assets/navigation//Frame 40.svg"
+              alt="History and culture"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">歷史文化</figcaption>
+          </figure>
+          <figure class="search-box__theme-item" data-theme="outdoor-activity">
+            <img
+              src="assets/navigation//Frame 40-1.svg"
+              alt="Outdoor activities"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">戶外踏青</figcaption>
+          </figure>
+          <figure class="search-box__theme-item" data-theme="religion">
+            <img
+              src="assets/navigation//Frame 40-2.svg"
+              alt="Religious ceremonies"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">宗教巡禮</figcaption>
+          </figure>
+          <figure class="search-box__theme-item" data-theme="family-activities">
+            <img
+              src="assets/navigation//Frame 40-3.svg"
+              alt="family entertainments"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">親子活動</figcaption>
+          </figure>
+          <figure
+            class="search-box__theme-item selected"
+            data-theme="ScenicSpot"
+          >
+            <img
+              src="assets/navigation/Frame 40-4.svg"
+              alt="ScenicSpot"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">風景區</figcaption>
+          </figure>
+          <figure class="search-box__theme-item" data-theme="Restaurant">
+            <img
+              src="assets/navigation/Frame 40-5.svg"
+              alt="Restaurant"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">美食品嘗</figcaption>
+          </figure>
+          <figure class="search-box__theme-item" data-theme="Hotel">
+            <img
+              src="assets/navigation/Frame 40-6.svg"
+              alt="Hotel"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">住宿推薦</figcaption>
+          </figure>
+          <figure class="search-box__theme-item" data-theme="Activity">
+            <img
+              src="assets/navigation/Frame 40-7.svg"
+              alt="Activity"
+              class="search-box__theme-img"
+            />
+            <figcaption class="search-box__theme-caption">觀光活動</figcaption>
+          </figure>
+        </div>
+      </form>
+    </header>
+    <main class="main-sections">
+      <section class="banner">
+        <h1 class="heading-primary">探索。<br />福爾摩沙</h1>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__title">Taiwan travel</p>
+      <div class="footer__disclaimer-box">
+        <p class="">
+          UI Design:
+          <a
+            class="footer__link"
+            href="https://2021.thef2e.com/users/6296427084285739194/"
+            >Jhen</a
+          >
+        </p>
+        <p>Front-end: <a class="footer__link" href="">John Huang</a></p>
+        <p>
+          <a class="footer__link" href="https://2021.thef2e.com/"
+            >2021 THE F2E 3rd</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

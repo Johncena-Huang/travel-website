@@ -1,0 +1,24 @@
+.footer {
+  grid-column: full-start / full-end;
+  background-color: var(--color-primary);
+  padding: 8px 0;
+  text-align: center;
+  font-size: var(--fs-2xs);
+  line-height: 2rem;
+  color: var(--color-bg-white);
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  &__disclaimer-box {
+    display: flex;
+    justify-content: center;
+  }
+  &__disclaimer-box > *:not(:last-child) {
+    margin-right: 2rem;
+  }
+  &__link:link,
+  &__link:visited {
+    color: yellow;
+  }
+}
